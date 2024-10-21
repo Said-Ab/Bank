@@ -55,7 +55,11 @@ public class Account {
         for(Account account:accounts){
             if(id==account.id){
                 double deposit = scanner.nextDouble();
-                account.balance = account.balance - deposit;}
+                if (account.balance-deposit>=0){
+                account.balance = account.balance - deposit;}}
+            else {
+                System.out.println("акча жетишсиз");
+            }
     }}
 
     public void transaction(int id , Account[]accounts) {
@@ -66,11 +70,14 @@ public class Account {
             int idUser = scanner1.nextInt();
             System.out.println("сколько хотите перевести?");
             double withdrawal1 = scanner1.nextDouble();
+            if(account.balance-withdrawal1>=0){
             for (Account ids : accounts) {
                 if (idUser == ids.id) {
                     ids.balance = ids.balance + withdrawal1;
                     account.balance=account.balance-withdrawal1;
                 }
+            }}else {
+                System.out.println("акча жетишсиз");
             }
         }
     }}
