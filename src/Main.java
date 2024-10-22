@@ -17,44 +17,6 @@ public class Main {
         Account[] accounts = {account1, account2, account3};
         Scanner scanner = new Scanner(System.in);
 
-        for (int j = 0; j < 1; ) {
-            System.out.println("напишите ваш ID");
-            int id = scanner.nextInt();
-
-            boolean check = false;
-
-            for (Account account : accounts) {
-                if (id == account.getId()) {
-                    check = true;
-
-                    while (true) {
-                        System.out.println("Menu \n1;balance\n2;deposit\n3;withdrawal\n4;transaction\n5;Status account\n0;Exit");
-                        int menu = scanner.nextInt();
-
-                        if (menu == 0) {
-                            break;
-                        } else {
-                            if (menu == 1) {
-                                account.checkBalance(id, accounts);
-                            }
-                            if (menu == 2) {
-                                account.deposit(id, accounts);
-                            }
-                            if (menu == 3) {
-                                account.withdrawal(id, accounts);
-                            }
-                            if (menu == 4) {
-                                account.transaction(id, accounts);
-                            }
-                            if (menu == 5) {
-                                account.tet(id, accounts);
-                            }
-
-                        }
-                    }
-                    break;
-                }
-            }
-        }
+        Account.l(accounts);
     }
 }
